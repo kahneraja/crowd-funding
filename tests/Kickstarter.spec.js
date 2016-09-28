@@ -1,5 +1,5 @@
 var assert = require("assert");
-var Kickstarter = require("../Kickstarter.js");
+var Kickstarter = require("../app/Kickstarter.js");
 var ProjectApi = require("../api/MockProjectApi.js");
 
 describe("Kickstarter", function() {

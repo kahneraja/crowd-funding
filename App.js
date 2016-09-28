@@ -1,6 +1,6 @@
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
-let Kickstarter = require('./Kickstarter');
+let Kickstarter = require('./app/Kickstarter');
 var ProjectApi = require("./api/MockProjectApi.js");
 
 let store = {
@@ -11,13 +11,13 @@ let projectApi = new ProjectApi(store);
 let kickstarter = new Kickstarter(projectApi);
 
 process.stdin.on('data', function (text) {
-  let args = text.split(" ");
-  if (args[0] === "project"){
+  let inputArgs = text.trim().split(" ");
+  if (inputArgs[0] === "project"){
     // project <project> <target amount>
-    kickstarter.CreateProject(args[1], args[2]);
-  } else if (args[0] === "back"){
+    kickstarter.CreateProject(inputArgs[1], inputArgs[2]);
+  } else if (inputArgs[0] === "back"){
     // back <given name> <project> <credit card number> <backing amount>
-    kickstarter.BackProject(args[1], args[2], args[3], args[4]);
+    kickstarter.BackProject(inputArgs[1], inputArgs[2], inputArgs[3], inputArgs[4]);
   } else {
     console.log("Unknown command.");
   }
