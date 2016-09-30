@@ -1,6 +1,7 @@
 #### Setup & Run!
 
 ```
+// check you have nodejs installed.
 > npm install
 > npm run test
 > npm run start
