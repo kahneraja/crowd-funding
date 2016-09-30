@@ -56,12 +56,10 @@ var Kickstarter = function (projectApi){
     if (response.status === "ok"){
       for (let backing of response.data) {
         console.log(`-- ${backing.givenName} backed for $${backing.amount}`);
-        funding += backing.amount;
       }
       if (response.summary.isSuccessful) {
         console.log(`${projectName} is successful!`);
       } else {
-        const balance = response.targetAmount - funding;
         console.log(`${projectName} needs $${response.summary.balance} more dollars to be successful`);
       }
     }
