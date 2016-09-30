@@ -2,24 +2,76 @@ let _ = require('lodash');
 
 var MockProjectApi = function (store){
 
-  this.store = store;
+  // HACK: object.assign not packaged into current version of nodejs.
+  this.store = JSON.parse(JSON.stringify(store));
 
-  this.Add = (project) => {
-    const p = Object.assign({}, project);
-    this.store.projects.push(p);
-  };
-
-  this.Back = (name, amount) => {
-    let project = _.find(this.store, {name: "name"});
-    let backing = {
+  this.Add = (name, amount) => {
+    const project = {
+      id: this.store.projects.length + 1,
       name: name,
-      amount: amount
+      amount: parseFloat(amount)
     };
-    project.backings.push(backing);
+    this.store.projects.push(project);
+    const response = {
+      status: "ok",
+      data: project
+    };
+    return response;
   };
 
-  this.GetAll = () => {
-    return Object.assign([], this.store.projects);
+  this.Back = (givenName, projectName, creditCard, amount) => {
+
+    // TODO: Check project exists.
+
+    const backing = {
+      id: this.store.backings.length + 1,
+      givenName: givenName,
+      projectName: projectName,
+      creditCard: creditCard,
+      amount: parseFloat(amount)
+    };
+
+    this.store.backings.push(backing);
+    const response = {
+      status: "ok",
+      data: backing
+    };
+    return response;
+  };
+
+  this.ListProjectBackings = (projectName) => {
+
+    const project = _.find(this.store.projects, {name: projectName});
+    if (!project)
+      return {
+        status: "error"
+      };
+
+    const backings = _.filter(this.store.backings, {projectName: projectName});
+    const funding = _.sumBy(backings, (backing) => { return backing.amount});
+    const isSuccessful = (funding >= project.amount);
+    let balance = 0;
+    if (!isSuccessful)
+      balance = project.amount - funding;
+    return {
+      status: "ok",
+      summary: {
+        targetAmount: project.amount,
+        funding: funding,
+        isSuccessful: isSuccessful,
+        balance: balance
+      },
+      data: backings
+    };
+  };
+
+  this.ListUserBackings = (givenName) => {
+    const backings = _.filter(this.store.backings, {givenName: givenName});
+    const response = {
+      status: "ok",
+      data: backings
+    };
+    return response;
   };
 
 };

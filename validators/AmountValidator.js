@@ -1,4 +1,4 @@
-class ProjectAmountValidator {
+class AmountValidator {
   static isValid(amount) {
     const regex = /^[0-9.]+$/;
     if (!regex.test(amount))
@@ -8,4 +8,4 @@ class ProjectAmountValidator {
   }
 };
 
-module.exports = ProjectAmountValidator;
+module.exports = AmountValidator;

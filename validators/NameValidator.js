@@ -1,4 +1,4 @@
-class ProjectNameValidator {
+class NameValidator {
   static isValid(name) {
     const regex = /^[a-zA-Z0-9-_]+$/;
     if (!regex.test(name))
@@ -14,4 +14,4 @@ class ProjectNameValidator {
   }
 };
 
-module.exports = ProjectNameValidator;
+module.exports = NameValidator;

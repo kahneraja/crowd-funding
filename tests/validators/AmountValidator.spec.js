@@ -1,7 +1,7 @@
-var assert = require("assert");
-var validator = require("../Validators/ProjectAmountValidator.js");
+let assert = require("assert");
+let validator = require("../../validators/AmountValidator.js");
 
-describe("Project", () => {
+describe("Validation", () => {
   describe("Amount Validator", () => {
 
     it("Should accept both dollars.", () => {
