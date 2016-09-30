@@ -7,6 +7,21 @@
 > npm run start
 ```
 
+#### Design & architecture
+
+This implementation is broken up into 3 tiers.
+
+
+
+#### Tools & Languages
+
+- Javascript
+- NodeJs
+- mocha
+- Luhn-10
+
+See packages.json for more details on dependant packages
+
 #### Inputs
 
 **Input commands must be handled and passed with space-delimited
