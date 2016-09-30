@@ -11,7 +11,7 @@
 
 This implementation is broken up into 3 tiers.
 
-
+![Approach](https://raw.githubusercontent.com/kahneraja/crowd-funding/master/approach.png)
 
 #### Tools & Languages
 
