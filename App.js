@@ -21,6 +21,7 @@ process.stdin.on('data', function (text) {
   } else {
     console.log("Unknown command.");
   }
+  console.log();
 });
 
 function done() {
