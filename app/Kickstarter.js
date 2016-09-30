@@ -37,8 +37,11 @@ var Kickstarter = function (projectApi){
 
     const response = this.ProjectApi.Back(givenName, projectName, creditCard, amount);
 
-    if (response.status === "ok")
+    if (response.status === "ok"){
       console.log(`${response.data.givenName} backed project ${response.data.projectName} for $${response.data.amount}`);
+    } else {
+      console.log(`${response.message}`)
+    }
 
     return response;
   };

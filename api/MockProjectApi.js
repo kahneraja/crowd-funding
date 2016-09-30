@@ -21,7 +21,20 @@ var MockProjectApi = function (store){
 
   this.Back = (givenName, projectName, creditCard, amount) => {
 
-    // TODO: Check project exists.
+    const project = _.find(this.store.projects, {name: projectName});
+    if (!project)
+      return {
+        status: "error",
+        message: "ERROR: That project does not exist."
+      };
+
+    if (_.some(this.store.backings, (backing) => {
+      return (backing.givenName != givenName && backing.creditCard === creditCard);
+    }))
+      return {
+        status: "error",
+        message: "ERROR: That card has already been added by another user!"
+      };
 
     const backing = {
       id: this.store.backings.length + 1,
