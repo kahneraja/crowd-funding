@@ -18,11 +18,5 @@ describe("Validation", () => {
       assert.equal(false, validator.isValid("49927398717"));
     });
 
-    /*
-    TODO:
-    * Cards that fail Luhn-10 will display an error.
-    * Cards that have already been added will display an error.
-    */
-
   });
 });
