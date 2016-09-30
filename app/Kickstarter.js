@@ -53,7 +53,6 @@ var Kickstarter = function (projectApi){
 
     const response = this.ProjectApi.ListProjectBackings(projectName);
 
-    let funding = 0;
     if (response.status === "ok"){
       for (let backing of response.data) {
         console.log(`-- ${backing.givenName} backed for $${backing.amount}`);
