@@ -1,52 +1,10 @@
----
-layout: default
-title: Mini Kickstarter - General
-description:
-tags:
----
+#### Setup & Run!
 
-## Mini Kickstarter
-
-You want to help people build amazing creative projects. In order to do
-this you need to write a crowd funding application. You will implement a
-program that will feature projects, backers, target amounts and backing
-amounts via credit cards.
-
-### The process
-
-* We send you this document.
-* You build your Mini Kickstarter application.
-* You send the application back to us and we review it.
-* We'll get in touch to discuss your application and how you built it.
-
-### Requirements
-
-* You can write in any language you like (Ruby, Python, Perl,
-  Javascript, Go, Objective-C and Swift are all good candidates but we'll take anything!).
-* Your Mini Kickstarter can either run in memory or be backed by a data store of some kind.
-  Either option is a viable solution.
-* Take whatever time you need to build your application. This isn't a
-  stop watch based exercise. We know people have jobs, lives and families they
-  need to juggle.
-* We love readable code. Use intuitive naming, code organization, clear
-  syntax and comments to make your code easy to understand.
-* You should write tests for your code.
-* You should write documentation for your Mini Kickstarter so we
-  understand how to build and operate it. But remember you don't need to
-  write an essay; we'll review the code with you!
-* If you have time please feel free to share the thinking that goes into
-  your design and architecture decisions, for example why you chose a language,
-  frameworks, or dependencies.
-* Feel free to ask any clarifying questions you want.
-* Have fun!
-
-### Sending us your code
-
-* You can send us a GitHub repository.
-* You can send us a tarball with your code.
-
-Remember we need to be able to run your code so you should include
-sufficient documentation for us to be able to check out your creation!
+```
+> npm install
+> npm run test
+> npm run start
+```
 
 #### Inputs
 
